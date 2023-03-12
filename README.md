@@ -8,12 +8,12 @@ Improving [AutoHotkey Plus Plus](https://github.com/vscode-autohotkey/ahkpp), sp
 
 ## Resources
 
-- [LSP official website](https://microsoft.github.io/language-server-protocol)
-- [VS Code language server extension guide](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
+-   [LSP official website](https://microsoft.github.io/language-server-protocol)
+-   [VS Code language server extension guide](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
 
 ## Glossary
 
-- [RPC: remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call)
+-   [RPC: remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call)
 
 ## Building from source
 
