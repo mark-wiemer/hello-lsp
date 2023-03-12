@@ -1,15 +1,8 @@
 {
-    "name": "hello-npm",
+    "name": "hello-lsp",
     "version": "1.0.0",
-    "description": "A template npm package",
-    "keywords": [
-        "vitest",
-        "npm",
-        "template",
-        "prettier",
-        "eslint",
-        "husky"
-    ],
+    "description": "Getting started with the Language Server Protocol",
+    "keywords": [],
     "license": "MIT",
     "author": "Mark Wiemer",
     "main": "index.js",
