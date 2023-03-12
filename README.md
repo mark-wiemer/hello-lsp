@@ -1,14 +1,21 @@
-# Hello npm
+# Hello LSP
 
-A template project to easily get started building a well-maintained npm package.
+Getting started with the [Language Server Protocol](https://microsoft.github.io/language-server-protocol).
 
-## Goals
+## Motivations
 
--   Easy setup
--   Automatically format, lint, test, build, and deploy code
--   Document popular project management techniques
+Improving [AutoHotkey Plus Plus](https://github.com/vscode-autohotkey/ahkpp), specifically [support for AHK v2 syntax](https://github.com/vscode-autohotkey/ahkpp/issues/96) modeled after [`thqby/vscode-autohotkey2-lsp`](https://github.com/thqby/vscode-autohotkey2-lsp).
 
-## Creating a new project
+## Resources
+
+- [LSP official website](https://microsoft.github.io/language-server-protocol)
+- [VS Code language server extension guide](https://code.visualstudio.com/api/language-extensions/language-server-extension-guide)
+
+## Glossary
+
+- [RPC: remote procedure call](https://en.wikipedia.org/wiki/Remote_procedure_call)
+
+## Building from source
 
 ### Machine dependencies
 
