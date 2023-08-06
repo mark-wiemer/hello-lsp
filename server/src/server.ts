@@ -33,21 +33,13 @@ let hasWorkspaceFolderCapability = false;
 let hasDiagnosticRelatedInformationCapability = false;
 
 connection.onInitialize((params: InitializeParams) => {
-	const capabilities = params.capabilities;
+	const { capabilities }  = params;
 
 	// Does the client support the `workspace/configuration` request?
 	// If not, we fall back using global settings.
-	hasConfigurationCapability = !!(
-		capabilities.workspace && !!capabilities.workspace.configuration
-	);
-	hasWorkspaceFolderCapability = !!(
-		capabilities.workspace && !!capabilities.workspace.workspaceFolders
-	);
-	hasDiagnosticRelatedInformationCapability = !!(
-		capabilities.textDocument &&
-		capabilities.textDocument.publishDiagnostics &&
-		capabilities.textDocument.publishDiagnostics.relatedInformation
-	);
+	hasConfigurationCapability = !!capabilities.workspace?.configuration;
+	hasWorkspaceFolderCapability = !!capabilities.workspace?.workspaceFolders;
+	hasDiagnosticRelatedInformationCapability = !!capabilities.textDocument?.publishDiagnostics?.relatedInformation;
 
 	const result: InitializeResult = {
 		capabilities: {
@@ -157,32 +149,23 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 			source: 'ex'
 		};
 		if (hasDiagnosticRelatedInformationCapability) {
-			diagnostic.relatedInformation = [
-				{
-					location: {
-						uri: textDocument.uri,
-						range: Object.assign({}, diagnostic.range)
-					},
-					message: 'Spelling matters'
+			diagnostic.relatedInformation = ['Spelling matters', 'Particularly for names'].map(msg => ({
+				location: {
+					uri: textDocument.uri,
+					range: Object.assign({}, diagnostic.range)
 				},
-				{
-					location: {
-						uri: textDocument.uri,
-						range: Object.assign({}, diagnostic.range)
-					},
-					message: 'Particularly for names'
-				}
-			];
+				message: msg
+			}));
 		}
 		diagnostics.push(diagnostic);
 	}
 
-	// Send the computed diagnostics to VSCode.
+	// Send the computed diagnostics to VS Code.
 	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
 connection.onDidChangeWatchedFiles(_change => {
-	// Monitored files have change in VSCode
+	// Monitored files have change in VS Code
 	connection.console.log('We received an file change event');
 });
 
