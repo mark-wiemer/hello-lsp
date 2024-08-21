@@ -1,5 +1,5 @@
 {
-    "name": "lsp-sample",
+    "name": "hello-lsp",
     "version": "1.0.0",
     "description": "A language server example",
     "categories": [],
@@ -11,8 +11,8 @@
         "url": "https://github.com/Microsoft/vscode-extension-samples"
     },
     "license": "MIT",
-    "author": "Microsoft Corporation",
-    "publisher": "vscode-samples",
+    "author": "Microsoft Corporation and Mark Wiemer",
+    "publisher": "mark-wiemer",
     "main": "./client/out/extension",
     "scripts": {
         "compile": "tsc -b",
@@ -21,6 +21,7 @@
         "test": "node ./client/out/test/runTest",
         "validate": "npm run lint && npm run compile && npm run test",
         "vscode:prepublish": "npm run compile",
+        "package": "vsce package",
         "watch": "tsc -b -w"
     },
     "contributes": {
@@ -73,6 +74,7 @@
         "@types/node": "^18.14.6",
         "@typescript-eslint/eslint-plugin": "^7.1.0",
         "@typescript-eslint/parser": "^7.1.0",
+        "@vscode/vsce": "^3.0.0",
         "eslint": "^8.57.0",
         "mocha": "^10.3.0",
         "sort-package-json": "^2.10.0",
