@@ -25,10 +25,7 @@ export function activate(context: ExtensionContext) {
     // Otherwise the run options are used
     const serverOptions: ServerOptions = {
         run: { module: serverModule, transport: TransportKind.ipc },
-        debug: {
-            module: serverModule,
-            transport: TransportKind.ipc,
-        },
+        debug: { module: serverModule, transport: TransportKind.ipc },
     };
 
     // Options to control the language client
