@@ -33,7 +33,8 @@ let hasWorkspaceFolderCapability = false;
 let hasDiagnosticRelatedInformationCapability = false;
 
 connection.onInitialize((params: InitializeParams) => {
-    console.log('server has started');
+    // logs go in Debug Console (Ctrl+Shift+Y)
+    console.log('initializing server');
     const { capabilities } = params;
 
     // Does the client support the `workspace/configuration` request?
@@ -67,6 +68,7 @@ connection.onInitialize((params: InitializeParams) => {
 });
 
 connection.onInitialized(() => {
+    console.log('initialized server');
     if (hasConfigurationCapability) {
         // Register for all configuration changes.
         connection.client.register(
