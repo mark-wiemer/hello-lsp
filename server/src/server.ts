@@ -153,6 +153,10 @@ documents.onDidChangeContent((change) => {
     validateTextDocument(change.document);
 });
 
+/**
+ * Creates diagnostics for uppercase words of length 2 or more
+ * e.g. "AAA"
+ */
 async function validateTextDocument(
     textDocument: TextDocument,
 ): Promise<Diagnostic[]> {
