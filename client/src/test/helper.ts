@@ -11,10 +11,12 @@ export let editor: vscode.TextEditor;
 export let documentEol: string;
 export let platformEol: string;
 
+/** `publisher.name` from package.json */
+export const extensionId = 'mark-wiemer.hello-lsp';
+
 /** Activates the vscode.lsp-sample extension */
 export async function activate(docUri: vscode.Uri): Promise<void> {
-    // The extensionId is `publisher.name` from package.json
-    const ext = vscode.extensions.getExtension('vscode-samples.lsp-sample')!;
+    const ext = vscode.extensions.getExtension(extensionId)!;
     await ext.activate();
     try {
         doc = await vscode.workspace.openTextDocument(docUri);
